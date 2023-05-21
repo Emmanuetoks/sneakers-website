@@ -13,9 +13,7 @@ const NavBar = () => {
       navMenu.current.setAttribute("ismobile", "false");
     } else if (navMenu.current.getAttribute("ismobile") === "false") {
       navMenu.current.setAttribute("ismobile", "true");
-
     }
-    
   };
 
   return (

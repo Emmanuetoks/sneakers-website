@@ -1,12 +1,11 @@
-import RootLayout from "../layout/RootLayout"
-import Main from "./Main"
-
+import RootLayout from "../layout/RootLayout";
+import Main from "./Main";
 const App = () => {
   return (
     <RootLayout>
-        <Main/>
+      <Main />
     </RootLayout>
-  )
-}
+  );
+};
 
-export default App
+export default App;
