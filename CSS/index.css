@@ -1,0 +1,178 @@
+:root {
+}
+
+/*---- CSS Resets -----*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
+header::after {
+  content: '';
+  width: 90%;
+  height: 1px;
+  display: block;
+  background-color: red;
+  margin: 0 auto;
+}
+
+button {
+  border: 0 solid transparent;
+  outline: 0 solid transparent;
+}
+/* ------------- */
+
+/*---- Utility classes ---*/
+.flex {
+  display: flex;
+  gap: var(--gap);
+}
+
+.grid {
+  display: grid;
+}
+
+.self-center {
+  place-self: center;
+}
+
+.sr-only {
+  clip-path: circle(0);
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.no-overflow-x {
+  overflow-x: hidden;
+}
+
+/* ------------------------------ */
+
+/*--- Components Styling--- */
+.navbar {
+  align-items: center;
+  padding-block: 1em;
+  padding-inline: 5%;
+}
+
+.navbar__toggler {
+  display: none;
+  width: 16px;
+  aspect-ratio: 16 /15;
+  background-image: url("../public/images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.navbar__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.user--info {
+  align-items: center;
+}
+
+.user__cart,
+.user__img {
+  cursor: pointer;
+}
+
+.main {
+  margin-block-start: 2rem;
+  grid-template-columns: repeat(2, minmax(200px, 400px));
+  justify-self: center;
+  align-self: center;
+}
+
+.small-img {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.main__small-img-box {
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+/* ------------------------ */
+
+@media (max-width: 800px) {
+  header::after {
+    display: none;
+  }
+
+  .navbar__toggler {
+    display: block;
+    z-index: 99;
+  }
+  .navbar__menu {
+    position: absolute;
+    flex-direction: column;
+    inset: 0 50% 0 0;
+    background-color: red;
+    padding-block-start: 6em;
+    padding-inline-start: 6%;
+    transition-property: transform;
+    transition-duration: 200ms;
+  }
+
+  .navbar__menu[ismobile="false"] {
+    transform: translateX(-102%);
+  }
+
+  .menu-close {
+    background-image: url("../public/images/icon-close.svg");
+  }
+
+  .main {
+    margin: 0;
+    grid-template-columns: 1fr;
+  }
+
+  
+}
