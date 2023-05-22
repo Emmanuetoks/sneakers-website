@@ -31,7 +31,7 @@ const NavBar = () => {
       <ul
         ref={navMenu}
         ismobile="false"
-        className="navbar__menu flex"
+        className="navbar__menu flex text-accent-300 fw-100 bg-white"
         style={{ "--gap": "2rem" }}
       >
         <li>

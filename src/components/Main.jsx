@@ -9,63 +9,29 @@ import image3_Thumbnail from "../../public/images/image-product-3-thumbnail.jpg"
 
 import image4 from "../../public/images/image-product-4.jpg";
 import image4_Thumbnail from "../../public/images/image-product-4-thumbnail.jpg";
-
 import Price from "./Price";
 import AddItem from "./AddItemBox";
 import { useState } from "react";
-
-const SlideBox = ({ customClass }) => {
-  const largeImages = [image1, image2, image3, image4];
-  const [imageIndex, setImageIndex] = useState(0);
-  const prev = () => {
-    setImageIndex((prevValue) => {
-      if (imageIndex != 0) {
-        return prevValue - 1;
-      } else {
-        return largeImages.length - 1;
-      }
-    });
-  };
-
-  const next = () => {
-    setImageIndex((prevValue) => {
-      if (imageIndex != largeImages.length - 1) {
-        return prevValue + 1;
-      } else {
-        return 0;
-      }
-    });
-  };
-
-  const LightBox = () => {
-    return (
-      <div className="lightbox">
-        <SlideBox />
-        
-      </div>
-    );
-  };
-
-  return (
-    <div className={`${customClass}`}>
-      <button onClick={prev} className="prev-btn slide-btn">
-        <span className="sr-only">previous</span>
-      </button>
-      <img src={largeImages[imageIndex]} className="lrg-img w-100" />
-      <button onClick={next} className="next-btn slide-btn">
-        <span className="sr-only">next</span>
-      </button>
-    </div>
-  );
-};
+import SlideBox from "./SlideBox";
+import LightBox from "./LightBox";
 
 const Main = () => {
+  const [showLightBox, setShowLightBox] = useState(false);
+
   const [largeImg, setLargeImg] = useState(image1);
+  const largeImages = [image1, image2, image3, image4];
+  const [imageIndex, setImageIndex] = useState(0);
   return (
     <main className="main grid self-center place-center">
-      <SlideBox customClass={"main__mobile-image-box"} />
+      <SlideBox
+        largeImages={largeImages}
+        imageIndex={imageIndex}
+        setImageIndex={setImageIndex}
+        customClass={"main__mobile-image-box"}
+      />
+      {showLightBox ? <LightBox setShowLightBox={setShowLightBox} /> : ""}
       <section className="main__desktop-image-box">
-        <img src={largeImg} className="w-100 lrg-img" />
+        <img onClick={() => setShowLightBox(true)} src={largeImg} className="w-100 lrg-img" />
         <div className="main__small-img-box flex w-100">
           <img
             onClick={() => setLargeImg(image1)}
@@ -95,9 +61,9 @@ const Main = () => {
       </section>
 
       <section className="main__product-description place-center">
-        <h5 className="uppercase">sneaker company</h5>
-        <h1 className="capitalize">fall out limited edition sneakers</h1>
-        <p>
+        <h5 className="uppercase text-accent-500 fw-200">sneaker company</h5>
+        <h1 className="capitalize text-accent-400 fw-400">fall out limited edition sneakers</h1>
+        <p className="text-accent-300 fw-100">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they&apos;ll withstand
           everything the weatheer can offer.

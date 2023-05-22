@@ -6,7 +6,7 @@ const RootLayout = ({ children }) => {
   return (
     <CountProvider>
       <div
-        className="pos-rel no-overflow-x flex"
+        className="pos-rel no-overflow-x flex bg-white"
         style={{ height: "100%", flexDirection: "column" }}
       >
         <header>
