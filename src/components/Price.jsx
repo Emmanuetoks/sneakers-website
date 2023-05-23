@@ -14,7 +14,7 @@ const Price = () => {
         }`}{".00 "}
         <span className="text-accent-500 discount bg-light-orange fw-200">{price.discount}%</span>
       </h3>
-      <h5 className="text-accent-200 fw-200">{`$${price.discount != 0 ? price.mainPrice : ""}.00`}</h5>
+      <h5 style={{'textDecoration':'line-through'}} className="text-accent-200 fw-200">{`$${price.discount != 0 ? price.mainPrice : ""}.00`}</h5>
     </div>
   );
 };
