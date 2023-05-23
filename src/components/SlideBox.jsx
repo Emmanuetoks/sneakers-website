@@ -23,7 +23,7 @@ const SlideBox = ({ customClass, largeImages, imageIndex, setImageIndex }) => {
     });
   };
   return (
-    <div className={`${customClass}`}>
+    <div className={`${customClass} pos-rel`}>
       <button onClick={prev} className="prev-btn slide-btn">
         <img src={PrevBtn}/>
       </button>

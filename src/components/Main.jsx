@@ -66,7 +66,7 @@ const Main = () => {
 
       <section className="main__product-description flex place-center">
         <header>
-          <h5 className="uppercase text-accent-500 fw-200">sneaker company</h5>
+          <h5 style={{'marginBottom': '1rem'}} className="uppercase text-accent-500 fw-200">sneaker company</h5>
           <h1 className="capitalize text-accent-400 fw-400">
             fall out limited edition sneakers
           </h1>

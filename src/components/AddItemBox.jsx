@@ -8,7 +8,7 @@ import { ItemContext } from "../context/itemContext";
 const AddItem = () => {
   const [cartCount, setCartCount] = useContext(countContext);
   const [itemCount, setItemCount] = useState(0);
-  const [cartItems, setCartItems] = useContext(ItemContext)
+  const [cartItems, setCartItems] = useContext(ItemContext);
 
   const increaseItemCount = () => {
     setItemCount((prevValue) => {
@@ -21,26 +21,44 @@ const AddItem = () => {
       if (itemCount != 0) {
         return prevValue - 1;
       } else {
-        return 0
+        return 0;
       }
     });
   };
 
   const addToCart = () => {
-    let isthere = false
-    for (const i of cartItems) {
-      if (i.name === 'hello') {
-        isthere = true
-      } 
-    }
+    if (itemCount != 0) {
+      let isthere = false;
+      for (const i of cartItems) {
+        if (i.codename === "fallout") {
+          isthere = true;
+        }
+      }
 
-    if (isthere === false) {
-      setCartItems((prevValue) => {
-        return [...prevValue, {name: 'hello'}]
-      })
+      if (isthere === false) {
+        setCartItems((prevValue) => {
+          return [
+            ...prevValue,
+            {
+              codename: "fallout",
+              name: "fallout limited edition sneakers",
+              price: 125,
+              amount: itemCount,
+              src: "../../public/images/image-product-1-thumbnail.jpg",
+            },
+          ];
+        });
+      } else {
+        for (const i of cartItems) {
+          if (i.codename === "fallout") {
+            i.amount = itemCount;
+            break;
+          }
+        }
+      }
+      setCartCount(itemCount);
     }
-    setCartCount(itemCount);
-    setItemCount(0)
+  
   };
 
   return (
@@ -50,13 +68,16 @@ const AddItem = () => {
           <img src={MinusBtn} />
         </button>
 
-        <span className="text-accent-400 fw-200" >{itemCount}</span>
+        <span className="text-accent-400 fw-200">{itemCount}</span>
 
         <button className="sub-btn" onClick={increaseItemCount}>
           <img src={PlusBtn} />
         </button>
       </div>
-      <button className="flex bg-orange add-to-cart pos-rel" onClick={addToCart}>
+      <button
+        className="flex bg-orange add-to-cart pos-rel"
+        onClick={addToCart}
+      >
         <div className="user__cart" style={{ width: "1rem" }}>
           <img src={Cart} className="w-100" />
         </div>
