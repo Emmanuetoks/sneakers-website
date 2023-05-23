@@ -3,10 +3,12 @@ import countContext from "../context/itemCount";
 import { useContext, useState } from "react";
 import MinusBtn from "../../public/images/icon-minus.svg";
 import PlusBtn from "../../public/images/icon-plus.svg";
+import { ItemContext } from "../context/itemContext";
 
 const AddItem = () => {
   const [cartCount, setCartCount] = useContext(countContext);
   const [itemCount, setItemCount] = useState(0);
+  const [cartItems, setCartItems] = useContext(ItemContext)
 
   const increaseItemCount = () => {
     setItemCount((prevValue) => {
@@ -25,6 +27,18 @@ const AddItem = () => {
   };
 
   const addToCart = () => {
+    let isthere = false
+    for (const i of cartItems) {
+      if (i.name === 'hello') {
+        isthere = true
+      } 
+    }
+
+    if (isthere === false) {
+      setCartItems((prevValue) => {
+        return [...prevValue, {name: 'hello'}]
+      })
+    }
     setCartCount(itemCount);
     setItemCount(0)
   };
@@ -42,7 +56,7 @@ const AddItem = () => {
           <img src={PlusBtn} />
         </button>
       </div>
-      <button className="flex bg-orange add-to-cart flex" onClick={addToCart}>
+      <button className="flex bg-orange add-to-cart pos-rel" onClick={addToCart}>
         <div className="user__cart" style={{ width: "1rem" }}>
           <img src={Cart} className="w-100" />
         </div>

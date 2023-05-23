@@ -31,7 +31,11 @@ const Main = () => {
       />
       {showLightBox ? <LightBox setShowLightBox={setShowLightBox} /> : ""}
       <section className="main__desktop-image-box">
-        <img onClick={() => setShowLightBox(true)} src={largeImg} className="w-100 lrg-img" />
+        <img
+          onClick={() => setShowLightBox(true)}
+          src={largeImg}
+          className="w-100 lrg-img"
+        />
         <div className="main__small-img-box flex w-100">
           <img
             onClick={() => setLargeImg(image1)}
@@ -60,9 +64,14 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="main__product-description place-center">
-        <h5 className="uppercase text-accent-500 fw-200">sneaker company</h5>
-        <h1 className="capitalize text-accent-400 fw-400">fall out limited edition sneakers</h1>
+      <section className="main__product-description flex place-center">
+        <header>
+          <h5 className="uppercase text-accent-500 fw-200">sneaker company</h5>
+          <h1 className="capitalize text-accent-400 fw-400">
+            fall out limited edition sneakers
+          </h1>
+        </header>
+
         <p className="text-accent-300 fw-100">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they&apos;ll withstand
