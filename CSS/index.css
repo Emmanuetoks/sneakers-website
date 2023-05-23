@@ -480,11 +480,11 @@ button {
     padding-block: 3rem 4rem;
   }
   .next-btn {
-    transform: translateX(-100%);
+    transform: translateX(-10%);
   }
 
   .prev-btn {
-    transform: translateX(100%);
+    transform: translateX(10%);
   }
 
   .lightbox {
