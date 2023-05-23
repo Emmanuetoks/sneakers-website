@@ -400,6 +400,7 @@ button {
     width: 90vw;
     top: 140%;
     transform: translateX(3%);
+    z-index: 99;
   }
 
   .cart__items > figure {
