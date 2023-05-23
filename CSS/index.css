@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;500;600;700&family=League+Spartan:wght@100;200;300;500;600;700&display=swap");
+
 :root {
   --clr-primary-100: hsl(26, 100%, 55%);
   --clr-primary-200: hsl(25, 100%, 94%);
@@ -33,13 +35,17 @@ ul {
   list-style: none;
 }
 
+body {
+  font-family: "Kumbh Sans";
+}
+
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
-.layout::after {
+.layout > header::after {
   content: "";
   width: 90%;
   height: 1px;
@@ -209,6 +215,7 @@ button {
   justify-self: center;
   align-self: center;
   column-gap: 4rem;
+  padding-inline: 2em;
 }
 
 .small-img {
@@ -235,7 +242,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: red; */
   position: absolute;
   top: 50%;
   border-radius: 50%;
@@ -270,6 +276,11 @@ button {
 
 .add-item-box {
   width: 100%;
+}
+
+.add-btn,
+.sub-btn {
+  background-color: transparent;
 }
 /* ------------------------ */
 
@@ -364,7 +375,29 @@ button {
   /* justify-content: space-between; */
 }
 
+.price-section {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.discount {
+  font-size: 0.75rem;
+  margin-left: 0.3rem;
+  padding: 2px 4px;
+  border-radius: 5px;
+}
 /* ------- */
+
+.cart__checkout-btn,
+.add-to-cart,
+.item-counter {
+  padding: 1em 1em;
+  border-radius: 10px;
+}
+
+.add-item-box {
+  gap: 1em;
+}
 
 /* ------------------------ */
 
@@ -378,6 +411,16 @@ button {
     z-index: 20;
   }
 
+  .add-item-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .price-section {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   .navbar__menu {
     position: absolute;
     flex-direction: column;
@@ -394,7 +437,7 @@ button {
   }
 
   .navbar__menu[ismobile="true"] {
-    outline: 50vw solid var(--clr-neutral-600);
+    outline: 100vw solid var(--clr-neutral-600);
   }
   .cart {
     width: 90vw;
@@ -413,6 +456,7 @@ button {
   .main {
     margin: 0;
     grid-template-columns: 1fr;
+    padding-inline: 0;
   }
 
   .main__mobile-image-box {

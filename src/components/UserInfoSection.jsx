@@ -6,7 +6,8 @@ import countContext from "../context/itemCount";
 import DeleteImg from "../../public/images/icon-delete.svg";
 import { ItemContext } from "../context/itemContext";
 
-const CartItems = ({ src, price, amount, name, setCartItems }) => {
+const CartItem = ({ src, price, amount, name, setCartItems }) => {
+  const [cartCount, setCartCount] = useContext(countContext);
   const deleteItem = (e) => {
     const targetItem = e.target.getAttribute("target-item");
     setCartItems((prevValue) => {
@@ -16,15 +17,18 @@ const CartItems = ({ src, price, amount, name, setCartItems }) => {
         }
       });
     });
+
+    setCartCount(0)
+
   };
   return (
     <div className="cart__items" style={{'marginBlock': '1rem'}} >
       <figure className="flex" style={{ alignItems: "center"}} >
         <img style={{ width: "2rem" }} src={src} />
         <figcaption>
-            <p className="text-accent-300">{name}</p>
-            <span className="text-accent-300">{`${price} x ${amount} `}</span>
-            <span className="text-accent-400 fw-300">{amount * price}</span>
+            <p className="text-accent-300 capitalize">{name}</p>
+            <span className="text-accent-300">{`$${price}.00 x ${amount}  `}</span>
+            <span className="text-accent-400 fw-300">{'$' + amount * price}</span>
         </figcaption>
         <button
           onClick={deleteItem}
@@ -45,7 +49,7 @@ const UserCartInfo = () => {
       <header className="cart__header text-accent-400 fw-200">Cart</header>
       {cartItems.length != 0 ?cartItems.map((item) => {
         return (
-          <CartItems
+          <CartItem
             key={item.name}
             name={item.name}
             src={item.src}
@@ -57,7 +61,7 @@ const UserCartInfo = () => {
       }) : <p className="text-accent-200 fw-200" style={{'textAlign':'center', 'marginBottom': '1em'}}>Your cart is empty</p> }
       {}
       <a href="#" className="text-accent-300 fw-200">
-        <button className="cart__checkout-btn bg-orange text-accent-100">
+        <button className="cart__checkout-btn bg-orange text-accent-100 capitalize">
           checkout
         </button>
       </a>
@@ -83,7 +87,7 @@ const UserInfoSection = () => {
       style={{ "--gap": "2rem" }}
     >
       <div className="user__cart pos-rel" style={{ width: "1.5rem" }}>
-        <button onClick={toggleShowCart} style={{'cursor': 'pointer'}}>
+        <button onClick={toggleShowCart} style={{'cursor': 'pointer', 'backgroundColor': 'transparent'}}>
           <img src={Cart} className="w-100" />
         </button>
         <span className="user__cart-count pos-abs text-accent-100 bg-orange">
