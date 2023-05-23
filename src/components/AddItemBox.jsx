@@ -44,7 +44,7 @@ const AddItem = () => {
               name: "fallout limited edition sneakers",
               price: 125,
               amount: itemCount,
-              src: "../../public/images/image-product-1-thumbnail.jpg",
+              src: "../../images/image-product-1-thumbnail.jpg",
             },
           ];
         });
