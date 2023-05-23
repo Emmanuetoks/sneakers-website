@@ -437,7 +437,7 @@ button {
     padding-block-start: 6em;
     padding-inline-start: 6%;
     transition-property: transform;
-    transition-duration: 200ms;
+    transition-duration: 100ms;
     z-index: 11;
   }
 
