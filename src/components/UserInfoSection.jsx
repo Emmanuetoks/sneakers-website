@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 import { useContext, useState } from "react";
-import Cart from "../../public/images/icon-cart.svg";
-import userImg from "../../public/images/image-avatar.png";
+import Cart from "/images/icon-cart.svg";
+import userImg from "/images/image-avatar.png";
 import countContext from "../context/itemCount";
-import DeleteImg from "../../public/images/icon-delete.svg";
+import DeleteImg from "/images/icon-delete.svg";
 import { ItemContext } from "../context/itemContext";
 
 const CartItem = ({ src, price, amount, name, setCartItems }) => {

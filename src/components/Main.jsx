@@ -1,14 +1,14 @@
-import image1 from "../../public/images/image-product-1.jpg";
-import image1_Thumbnail from "../../public/images/image-product-1-thumbnail.jpg";
+import image1 from "/images/image-product-1.jpg";
+import image1_Thumbnail from "/images/image-product-1-thumbnail.jpg";
 
-import image2 from "../../public/images/image-product-2.jpg";
-import image2_Thumbnail from "../../public/images/image-product-2-thumbnail.jpg";
+import image2 from "/images/image-product-2.jpg";
+import image2_Thumbnail from "/images/image-product-2-thumbnail.jpg";
 
-import image3 from "../../public/images/image-product-3.jpg";
-import image3_Thumbnail from "../../public/images/image-product-3-thumbnail.jpg";
+import image3 from "/images/image-product-3.jpg";
+import image3_Thumbnail from "/images/image-product-3-thumbnail.jpg";
 
-import image4 from "../../public/images/image-product-4.jpg";
-import image4_Thumbnail from "../../public/images/image-product-4-thumbnail.jpg";
+import image4 from "/images/image-product-4.jpg";
+import image4_Thumbnail from "/images/image-product-4-thumbnail.jpg";
 import Price from "./Price";
 import AddItem from "./AddItemBox";
 import { useState } from "react";
@@ -27,7 +27,7 @@ const Main = () => {
         largeImages={largeImages}
         imageIndex={imageIndex}
         setImageIndex={setImageIndex}
-        customClass={"main__mobile-image-box"}
+        customClass={"main__mobile-image-box flex"}
       />
       {showLightBox ? <LightBox setShowLightBox={setShowLightBox} /> : ""}
       <section className="main__desktop-image-box">

@@ -1,8 +1,8 @@
-import Cart from "../../public/images/icon-cart.svg";
+import Cart from "/images/icon-cart.svg";
 import countContext from "../context/itemCount";
 import { useContext, useState } from "react";
-import MinusBtn from "../../public/images/icon-minus.svg";
-import PlusBtn from "../../public/images/icon-plus.svg";
+import MinusBtn from "/images/icon-minus.svg";
+import PlusBtn from "/images/icon-plus.svg";
 import { ItemContext } from "../context/itemContext";
 
 const AddItem = () => {

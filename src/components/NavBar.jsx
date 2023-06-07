@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import UserInfoSection from "./UserInfoSection";
-import Logo from "../../public/images/logo.svg";
+import Logo from "/images/logo.svg";
 import { useRef } from "react";
 
 const NavBar = () => {

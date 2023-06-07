@@ -251,19 +251,15 @@ button {
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
-  /* transform: translateY(-100%); */
-  /* background-repeat: no-repeat; */
 }
 
 .prev-btn {
   left: 0;
-  transform: translateX(-50%);
-  /* background-image: url('../images/icon-previous.svg') */
+  transform: translateX(20%) translateY(-50%);
 }
 
 .next-btn {
-  /* background-image: url('../images/icon-next.svg'); */
-  transform: translateX(50%);
+  transform: translateX(-20%) translateY(-50%);
   right: 0;
 }
 
@@ -286,20 +282,24 @@ button {
 .sub-btn {
   background-color: transparent;
 }
+
+.display-none {
+  display: none;
+}
+
 /* ------------------------ */
 
 /* ---Lightbox---- */
 .lightbox {
   z-index: 999;
-  width: 25rem;
   outline: 99999px solid var(--clr-neutral-600);
   background-color: var(--clr-neutral-600);
+  height: fit-content;
 }
 
 .lightbox__close-btn {
   aspect-ratio: 2 / 1;
   background-color: transparent;
-
   top: 0;
   right: 0;
   transform: translateY(-150%);
@@ -309,7 +309,25 @@ button {
 .lightbox__thumbnails {
   width: 100%;
   justify-content: space-between;
+  margin-block-start:1rem ;
 }
+
+.lightbox__slider {
+  width: 25rem;
+  display: flex;
+  aspect-ratio:  1/ 1;
+  overflow: hidden;
+  gap: 0;
+}
+
+.lightbox__slider .lrg-img {
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+
+
 /* ----------- */
 
 /* ----Cart styling--- */
@@ -361,7 +379,7 @@ button {
 }
 
 .small-img:hover::before {
-  content: "FHFHFH";
+  content: '';
   display: inline;
   position: absolute;
   width: 100%;
@@ -469,7 +487,8 @@ button {
   }
 
   .main__mobile-image-box {
-    display: block;
+    display: flex;
+    flex-direction: row;
   }
 
   .main__desktop-image-box {
