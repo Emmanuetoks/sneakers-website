@@ -14,6 +14,7 @@ import AddItem from "./AddItemBox";
 import { useState } from "react";
 import SlideBox from "./SlideBox";
 import LightBox from "./LightBox";
+import { useReducer, useEffect, useRef } from "react";
 
 const Main = () => {
   const [showLightBox, setShowLightBox] = useState(false);
@@ -21,6 +22,57 @@ const Main = () => {
   const [largeImg, setLargeImg] = useState(image1);
   const largeImages = [image1, image2, image3, image4];
   const [imageIndex, setImageIndex] = useState(0);
+
+  let lightBoxSlides = useRef(null);
+  let currSlide = useRef(0)
+  let mobileSlides = useRef(null)
+  const [, dispatchSlideAction] = useReducer(slideImages, 0);
+
+  useEffect(() => {
+    lightBoxSlides.current = document.querySelectorAll(".lightbox .lrg-img");
+
+    mobileSlides.current = document.querySelectorAll('.main__mobile-image-box .lrg-img');
+
+    console.log(mobileSlides);
+
+    console.log(lightBoxSlides.current);
+  }, [showLightBox]);
+
+  function slideImages(currState, action) {
+    if (action.type === "thumbNail") {
+      currSlide.current = action.slideTo;
+    } else {
+      if (action.type === "prev") {
+        if (currSlide.current === 0) {
+          currSlide.current = -3;
+        } else {
+          currSlide.current++;
+        }
+        console.log(currSlide.current + 'prev');
+      } else if (action.type === "next") {
+        if (currSlide.current === -3) {
+          currSlide.current = 0;
+        } else {
+          currSlide.current--;
+        }
+        console.log(currSlide.current + 'next');
+
+
+      }
+    }
+
+    lightBoxSlides.current.forEach((slide, index) => {
+      slide.style.transform = `translateX(${(index + currSlide.current) * 100}%)`;
+    });
+
+    mobileSlides.current.forEach((slide, index) => {
+      slide.style.transform = `translateX(${(index + currSlide.current) * 100}%)`;
+    });
+
+  }
+
+
+
   return (
     <main className="main grid self-center place-center">
       <SlideBox
@@ -28,8 +80,9 @@ const Main = () => {
         imageIndex={imageIndex}
         setImageIndex={setImageIndex}
         customClass={"main__mobile-image-box flex"}
+        dispatchSlideAction={dispatchSlideAction}
       />
-      {showLightBox ? <LightBox setShowLightBox={setShowLightBox} /> : ""}
+      {showLightBox ? <LightBox setShowLightBox={setShowLightBox} dispatchSlideAction={dispatchSlideAction}/> : ""}
       <section className="main__desktop-image-box">
         <img
           onClick={() => setShowLightBox(true)}

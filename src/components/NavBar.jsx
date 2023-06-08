@@ -6,13 +6,18 @@ import { useRef } from "react";
 const NavBar = () => {
   const toggleBtn = useRef(null);
   const navMenu = useRef(null);
+  const body = document.querySelector('body')
 
   const toggleMobileMenu = () => {
     toggleBtn.current.classList.toggle("menu-close");
     if (navMenu.current.getAttribute("ismobile") === "true") {
       navMenu.current.setAttribute("ismobile", "false");
+      body.style.overflowY = 'auto'
+
     } else if (navMenu.current.getAttribute("ismobile") === "false") {
       navMenu.current.setAttribute("ismobile", "true");
+      body.style.overflowY = 'hidden'
+
     }
   };
 

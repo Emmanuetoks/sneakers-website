@@ -309,13 +309,13 @@ button {
 .lightbox__thumbnails {
   width: 100%;
   justify-content: space-between;
-  margin-block-start:1rem ;
+  margin-block-start: 1rem;
 }
 
 .lightbox__slider {
   width: 25rem;
   display: flex;
-  aspect-ratio:  1/ 1;
+  aspect-ratio: 1/ 1;
   overflow: hidden;
   gap: 0;
 }
@@ -327,6 +327,9 @@ button {
   inset: 0 0 0 0;
 }
 
+.main__mobile-image-box .lrg-img {
+  aspect-ratio: 1 / 1;
+}
 
 /* ----------- */
 
@@ -379,7 +382,7 @@ button {
 }
 
 .small-img:hover::before {
-  content: '';
+  content: "";
   display: inline;
   position: absolute;
   width: 100%;
@@ -428,6 +431,7 @@ button {
   body,
   #root {
     /* min-height: 100vh; */
+    /* overflow-y: hidden; */
   }
   header::after {
     display: none;
@@ -457,6 +461,8 @@ button {
     transition-property: transform;
     transition-duration: 100ms;
     z-index: 11;
+    min-height: 100vh;
+    overflow-y: hidden;
   }
 
   .navbar__menu[ismobile="false"] {
