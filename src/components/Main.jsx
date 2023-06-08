@@ -31,7 +31,7 @@ const Main = () => {
   useEffect(() => {
     lightBoxSlides.current = document.querySelectorAll(".lightbox .lrg-img");
 
-    mobileSlides.current = document.querySelectorAll('.main__mobile-image-box .lrg-img');
+    mobileSlides.current = document.querySelectorAll('.main__mobile-carousel .lrg-img');
 
     console.log(mobileSlides);
 
@@ -39,7 +39,7 @@ const Main = () => {
   }, [showLightBox]);
 
   function slideImages(currState, action) {
-    if (action.type === "thumbNail") {
+    if (action.type === "thumbnail") {
       currSlide.current = action.slideTo;
     } else {
       if (action.type === "prev") {
@@ -79,7 +79,7 @@ const Main = () => {
         largeImages={largeImages}
         imageIndex={imageIndex}
         setImageIndex={setImageIndex}
-        customClass={"main__mobile-image-box flex"}
+        customClass={"main__mobile-carousel flex"}
         dispatchSlideAction={dispatchSlideAction}
       />
       {showLightBox ? <LightBox setShowLightBox={setShowLightBox} dispatchSlideAction={dispatchSlideAction}/> : ""}

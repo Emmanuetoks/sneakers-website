@@ -263,7 +263,7 @@ button {
   right: 0;
 }
 
-.main__mobile-image-box {
+.main__mobile-carousel {
   display: none;
 }
 
@@ -312,6 +312,11 @@ button {
   margin-block-start: 1rem;
 }
 
+
+.lightbox__slider .small-img {
+  filter: 
+}
+
 .lightbox__slider {
   width: 25rem;
   display: flex;
@@ -327,7 +332,17 @@ button {
   inset: 0 0 0 0;
 }
 
-.main__mobile-image-box .lrg-img {
+.main__mobile-carousel {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+.main__mobile-carousel .lrg-img {
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  inset: 0 0 0 0;
   aspect-ratio: 1 / 1;
 }
 
@@ -492,7 +507,7 @@ button {
     padding-inline: 0;
   }
 
-  .main__mobile-image-box {
+  .main__mobile-carousel {
     display: flex;
     flex-direction: row;
   }

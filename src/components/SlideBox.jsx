@@ -15,7 +15,7 @@ const SlideBox = ({ customClass, dispatchSlideAction }) => {
       });
 
     document
-      .querySelectorAll(".main__mobile-image-box .lrg-img")
+      .querySelectorAll(".main__mobile-carousel .lrg-img")
       .forEach((slide, index) => {
         slide.style.transform = `translateX(${index * 100}%)`;
       });

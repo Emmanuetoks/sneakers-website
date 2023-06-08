@@ -4,7 +4,6 @@ import image3_Thumbnail from "/images/image-product-3-thumbnail.jpg";
 import image4_Thumbnail from "/images/image-product-4-thumbnail.jpg";
 import CloseBtn from "/images/icon-close.svg";
 
-import { useRef, useEffect, useReducer } from "react";
 import SlideBox from "./SlideBox";
 
 const LightBox = ({ setShowLightBox, dispatchSlideAction }) => {
@@ -24,14 +23,14 @@ const LightBox = ({ setShowLightBox, dispatchSlideAction }) => {
 
       <div className="lightbox__thumbnails flex w-100">
         <img
-          onClick={() => dispatchSlideAction({ type: "thumbNail", slideTo: 0 })}
+          onClick={() => dispatchSlideAction({ type: "thumbnail", slideTo: 0 })}
           src={image1_Thumbnail}
           alt=""
           className="small-img w-100"
         />
         <img
           onClick={() =>
-            dispatchSlideAction({ type: "thumbNail", slideTo: -1 })
+            dispatchSlideAction({ type: "thumbnail", slideTo: -1 })
           }
           src={image2_Thumbnail}
           alt=""
@@ -39,7 +38,7 @@ const LightBox = ({ setShowLightBox, dispatchSlideAction }) => {
         />
         <img
           onClick={() =>
-            dispatchSlideAction({ type: "thumbNail", slideTo: -2 })
+            dispatchSlideAction({ type: "thumbnail", slideTo: -2 })
           }
           src={image3_Thumbnail}
           alt=""
@@ -47,7 +46,7 @@ const LightBox = ({ setShowLightBox, dispatchSlideAction }) => {
         />
         <img
           onClick={() =>
-            dispatchSlideAction({ type: "thumbNail", slideTo: -3 })
+            dispatchSlideAction({ type: "thumbnail", slideTo: -3 })
           }
           src={image4_Thumbnail}
           alt=""
